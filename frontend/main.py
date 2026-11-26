@@ -36,6 +36,25 @@ html, body, [class*="css"] {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+[data-testid="stAppViewContainer"] {
+    background-color: #0B0F19;
+    color: #F1F5F9;
+}
+[data-testid="stHeader"] {
+    background-color: rgba(11, 15, 25, 0.85);
+}
+[data-testid="stSidebar"] {
+    background-color: #0F172A;
+    border-right: 1px solid #1E293B;
+}
+[data-testid="stFileUploaderDropzone"] {
+    background-color: #111827;
+    border: 1px dashed #334155;
+    border-radius: 12px;
+}
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+
 .block-container {
     max-width: 1320px;
     padding-top: 1.5rem;
@@ -50,7 +69,7 @@ html, body, [class*="css"] {
     gap: 1rem;
     padding-bottom: 1rem;
     margin-bottom: 1.25rem;
-    border-bottom: 1px solid #E2E8F0;
+    border-bottom: 1px solid #1E293B;
     flex-wrap: wrap;
 }
 .arena-title {
@@ -58,13 +77,13 @@ html, body, [class*="css"] {
     font-size: 1.75rem;
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #0F172A;
+    color: #F8FAFC;
     line-height: 1.2;
 }
 .arena-subtitle {
     margin: 0.3rem 0 0 0;
     font-size: 0.92rem;
-    color: #475569;
+    color: #94A3B8;
 }
 .status-cluster {
     display: flex;
@@ -83,19 +102,19 @@ html, body, [class*="css"] {
     border: 1px solid transparent;
 }
 .pill-ready {
-    background: #ECFDF5;
-    color: #065F46;
-    border-color: #A7F3D0;
+    background: rgba(16, 185, 129, 0.12);
+    color: #6EE7B7;
+    border-color: rgba(16, 185, 129, 0.30);
 }
 .pill-waiting {
-    background: #EEF2FF;
-    color: #3730A3;
-    border-color: #C7D2FE;
+    background: rgba(99, 102, 241, 0.14);
+    color: #C7D2FE;
+    border-color: rgba(99, 102, 241, 0.32);
 }
 .pill-offline {
-    background: #FEF2F2;
-    color: #991B1B;
-    border-color: #FECACA;
+    background: rgba(239, 68, 68, 0.14);
+    color: #FCA5A5;
+    border-color: rgba(239, 68, 68, 0.35);
 }
 .pill-dot {
     width: 7px;
@@ -109,15 +128,15 @@ html, body, [class*="css"] {
 
 /* Cards */
 .surface-card {
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
+    background: #111827;
+    border: 1px solid #1F2937;
     border-radius: 14px;
     padding: 1.15rem 1.25rem;
-    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 .preview-frame {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
+    background: #0B1220;
+    border: 1px solid #1E293B;
     border-radius: 10px;
     padding: 0.5rem;
     display: flex;
@@ -142,9 +161,9 @@ html, body, [class*="css"] {
 .meta-chip {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.74rem;
-    color: #334155;
-    background: #F1F5F9;
-    border: 1px solid #E2E8F0;
+    color: #CBD5E1;
+    background: #1E293B;
+    border: 1px solid #334155;
     border-radius: 6px;
     padding: 0.2rem 0.52rem;
 }
@@ -157,28 +176,28 @@ html, body, [class*="css"] {
 .class-chip {
     font-size: 0.76rem;
     font-weight: 500;
-    color: #475569;
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
+    color: #94A3B8;
+    background: #0F172A;
+    border: 1px solid #1E293B;
     border-radius: 9999px;
     padding: 0.22rem 0.62rem;
 }
 .class-chip-ef {
-    background: #ECFDF5;
-    color: #065F46;
-    border-color: #6EE7B7;
+    background: rgba(16, 185, 129, 0.15);
+    color: #6EE7B7;
+    border-color: rgba(16, 185, 129, 0.45);
     font-weight: 600;
 }
 .class-chip-vit {
-    background: #EEF2FF;
-    color: #3730A3;
-    border-color: #A5B4FC;
+    background: rgba(99, 102, 241, 0.18);
+    color: #C7D2FE;
+    border-color: rgba(99, 102, 241, 0.45);
     font-weight: 600;
 }
 .class-chip-both {
-    background: #0F172A;
-    color: #FFFFFF;
-    border-color: #0F172A;
+    background: #F8FAFC;
+    color: #0B0F19;
+    border-color: #F8FAFC;
     font-weight: 600;
 }
 
@@ -187,39 +206,40 @@ html, body, [class*="css"] {
     border-radius: 12px;
     padding: 0.85rem 1.1rem;
     margin: 0.9rem 0 1rem 0;
-    border: 1px solid #E2E8F0;
-    background: #FFFFFF;
+    border: 1px solid #1F2937;
+    background: #111827;
+    color: #F1F5F9;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
 }
-.verdict-agree { border-left: 4px solid #10B981; background: #F0FDF4; border-color: #BBF7D0; }
-.verdict-disagree { border-left: 4px solid #F59E0B; background: #FFFBEB; border-color: #FDE68A; }
-.verdict-single { border-left: 4px solid #6366F1; background: #F8FAFC; border-color: #CBD5E1; }
+.verdict-agree { border-left: 4px solid #10B981; background: rgba(16, 185, 129, 0.10); border-color: rgba(16, 185, 129, 0.30); }
+.verdict-disagree { border-left: 4px solid #F59E0B; background: rgba(245, 158, 11, 0.10); border-color: rgba(245, 158, 11, 0.30); }
+.verdict-single { border-left: 4px solid #818CF8; background: rgba(99, 102, 241, 0.10); border-color: rgba(99, 102, 241, 0.28); }
 .caution-banner {
     border-radius: 10px;
     padding: 0.75rem 1rem;
     margin: 0.5rem 0 1rem 0;
-    background: #FFFBEB;
-    border: 1px solid #FDE68A;
-    border-left: 4px solid #D97706;
-    color: #92400E;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.32);
+    border-left: 4px solid #F59E0B;
+    color: #FDE68A;
     font-size: 0.86rem;
 }
 
 /* Arena Model Cards */
 .model-card {
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
+    background: #111827;
+    border: 1px solid #1F2937;
     border-radius: 14px;
     padding: 1.25rem 1.3rem;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     margin-bottom: 0.65rem;
 }
-.model-card-ef { border-top: 4px solid #059669; }
-.model-card-vit { border-top: 4px solid #4F46E5; }
+.model-card-ef { border-top: 4px solid #10B981; }
+.model-card-vit { border-top: 4px solid #6366F1; }
 
 .model-card-head {
     display: flex;
@@ -231,18 +251,18 @@ html, body, [class*="css"] {
 .model-name {
     font-size: 1.12rem;
     font-weight: 700;
-    color: #0F172A;
+    color: #F8FAFC;
     margin: 0;
 }
 .model-arch {
     font-size: 0.8rem;
-    color: #64748B;
+    color: #94A3B8;
     margin-top: 0.18rem;
 }
 .badge-ef {
-    background: #ECFDF5;
-    color: #065F46;
-    border: 1px solid #A7F3D0;
+    background: rgba(16, 185, 129, 0.14);
+    color: #6EE7B7;
+    border: 1px solid rgba(16, 185, 129, 0.35);
     font-size: 0.72rem;
     font-weight: 700;
     padding: 0.22rem 0.6rem;
@@ -250,9 +270,9 @@ html, body, [class*="css"] {
     white-space: nowrap;
 }
 .badge-vit {
-    background: #EEF2FF;
-    color: #3730A3;
-    border: 1px solid #C7D2FE;
+    background: rgba(99, 102, 241, 0.16);
+    color: #C7D2FE;
+    border: 1px solid rgba(99, 102, 241, 0.35);
     font-size: 0.72rem;
     font-weight: 700;
     padding: 0.22rem 0.6rem;
@@ -261,8 +281,8 @@ html, body, [class*="css"] {
 }
 
 .hero-prediction {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
+    background: #0B1220;
+    border: 1px solid #1E293B;
     border-radius: 10px;
     padding: 0.9rem 1rem;
     margin-bottom: 0.95rem;
@@ -272,18 +292,18 @@ html, body, [class*="css"] {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #64748B;
+    color: #94A3B8;
 }
 .hero-label {
     font-size: 1.55rem;
     font-weight: 700;
-    color: #0F172A;
+    color: #F8FAFC;
     margin: 0.15rem 0 0.25rem 0;
     line-height: 1.15;
 }
 .hero-sub {
     font-size: 0.82rem;
-    color: #475569;
+    color: #CBD5E1;
     font-family: 'JetBrains Mono', monospace;
 }
 
@@ -294,8 +314,8 @@ html, body, [class*="css"] {
     margin-bottom: 1rem;
 }
 .metric-tile {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
+    background: #0B1220;
+    border: 1px solid #1E293B;
     border-radius: 9px;
     padding: 0.55rem 0.7rem;
 }
@@ -304,13 +324,13 @@ html, body, [class*="css"] {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: #64748B;
+    color: #94A3B8;
 }
 .metric-value {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.98rem;
     font-weight: 600;
-    color: #0F172A;
+    color: #F8FAFC;
     margin-top: 0.12rem;
 }
 
@@ -320,7 +340,7 @@ html, body, [class*="css"] {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #64748B;
+    color: #94A3B8;
     margin-bottom: 0.55rem;
 }
 .prob-row {
@@ -334,22 +354,22 @@ html, body, [class*="css"] {
     margin-bottom: 0.2rem;
 }
 .prob-label {
-    color: #1E293B;
+    color: #CBD5E1;
     font-weight: 500;
 }
 .prob-label-top {
     font-weight: 700;
-    color: #0F172A;
+    color: #F8FAFC;
 }
 .prob-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.79rem;
-    color: #334155;
+    color: #CBD5E1;
 }
 .prob-track {
     width: 100%;
     height: 8px;
-    background: #F1F5F9;
+    background: #1E293B;
     border-radius: 9999px;
     overflow: hidden;
 }
@@ -361,18 +381,18 @@ html, body, [class*="css"] {
 .prob-fill-vit {
     height: 100%;
     border-radius: 9999px;
-    background: linear-gradient(90deg, #6366F1, #4F46E5);
+    background: linear-gradient(90deg, #818CF8, #4F46E5);
 }
 .prob-fill-muted {
     height: 100%;
     border-radius: 9999px;
-    background: #CBD5E1;
+    background: #475569;
 }
 
 /* Standby / awaiting card */
 .standby-box {
-    background: #F8FAFC;
-    border: 1px dashed #C7D2FE;
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px dashed rgba(129, 140, 248, 0.40);
     border-radius: 11px;
     padding: 1.15rem 1.05rem;
     margin-bottom: 0.9rem;
@@ -380,29 +400,29 @@ html, body, [class*="css"] {
 .standby-title {
     font-size: 0.98rem;
     font-weight: 700;
-    color: #312E81;
+    color: #C7D2FE;
     margin: 0 0 0.35rem 0;
 }
 .standby-text {
     font-size: 0.84rem;
-    color: #475569;
+    color: #CBD5E1;
     line-height: 1.5;
     margin: 0;
 }
 .code-pill {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.76rem;
-    background: #EEF2FF;
-    color: #3730A3;
+    background: #1E293B;
+    color: #A5B4FC;
     padding: 0.14rem 0.42rem;
     border-radius: 5px;
-    border: 1px solid #C7D2FE;
+    border: 1px solid #334155;
 }
 .arch-list {
     margin: 0.7rem 0 0 0;
     padding-left: 1.1rem;
     font-size: 0.82rem;
-    color: #475569;
+    color: #CBD5E1;
     line-height: 1.55;
 }
 </style>
@@ -510,7 +530,7 @@ def _build_preview_data_uri(file_bytes: bytes) -> tuple[str | None, dict[str, An
             width, height = transposed.size
             if "A" in transposed.mode or "transparency" in transposed.info:
                 rgba = transposed.convert("RGBA")
-                bg = Image.new("RGB", rgba.size, (255, 255, 255))
+                bg = Image.new("RGB", rgba.size, (11, 18, 32))
                 bg.paste(rgba, mask=rgba.split()[3])
                 preview_rgb = bg
             else:
@@ -847,7 +867,7 @@ def main() -> None:
             else:
                 preview_html = (
                     '<div class="preview-frame">'
-                    '<span style="color:#64748B;font-size:0.86rem;">Local preview unavailable — click Run to validate on backend.</span>'
+                    '<span style="color:#94A3B8;font-size:0.86rem;">Local preview unavailable — click Run to validate on backend.</span>'
                     '</div>'
                 )
 
@@ -890,8 +910,8 @@ def main() -> None:
             st.markdown(
                 f'<div class="surface-card">'
                 f'  <div class="preview-frame">'
-                f'    <div style="text-align:center;color:#64748B;padding:1rem;">'
-                f'      <div style="font-weight:600;color:#334155;margin-bottom:0.25rem;">Specimen Inspection Frame</div>'
+                f'    <div style="text-align:center;color:#94A3B8;padding:1rem;">'
+                f'      <div style="font-weight:600;color:#E2E8F0;margin-bottom:0.25rem;">Specimen Inspection Frame</div>'
                 f'      <div style="font-size:0.84rem;">Upload an image on the left to inspect metadata and run both models side by side.</div>'
                 f'    </div>'
                 f'  </div>'
@@ -933,16 +953,16 @@ def main() -> None:
             )
             st.markdown(
                 f'<div class="verdict-banner {banner_cls}">'
-                f'  <div style="font-weight:700;color:#0F172A;">{verdict_title}</div>'
-                f'  <div style="font-size:0.86rem;color:#334155;">{detail_line}</div>'
+                f'  <div style="font-weight:700;color:#F8FAFC;">{verdict_title}</div>'
+                f'  <div style="font-size:0.86rem;color:#CBD5E1;">{detail_line}</div>'
                 f'</div>',
                 unsafe_allow_html=True,
             )
         elif ef_res.get("status") == "ready":
             st.markdown(
                 f'<div class="verdict-banner verdict-single">'
-                f'  <div style="font-weight:700;color:#0F172A;">Active Benchmark: EfficientNetB0 ({html.escape(str(ef_res.get("predicted_label")))})</div>'
-                f'  <div style="font-size:0.85rem;color:#475569;">ViT slot is on standby awaiting weights — comparison metrics activate automatically once ViT weights are loaded.</div>'
+                f'  <div style="font-weight:700;color:#F8FAFC;">Active Benchmark: EfficientNetB0 ({html.escape(str(ef_res.get("predicted_label")))})</div>'
+                f'  <div style="font-size:0.85rem;color:#CBD5E1;">ViT slot is on standby awaiting weights — comparison metrics activate automatically once ViT weights are loaded.</div>'
                 f'</div>',
                 unsafe_allow_html=True,
             )
@@ -1002,7 +1022,7 @@ def main() -> None:
                 f'  </div>'
                 f'  <div class="hero-prediction">'
                 f'    <div class="hero-kicker">Ready for Inference</div>'
-                f'    <div class="hero-label" style="font-size:1.18rem;color:#334155;">Awaiting Specimen Upload</div>'
+                f'    <div class="hero-label" style="font-size:1.18rem;color:#CBD5E1;">Awaiting Specimen Upload</div>'
                 f'    <div class="hero-sub">Upload an image and click Run Head-to-Head Comparison to inspect per-class probabilities and fold consensus.</div>'
                 f'  </div>'
                 f'</div>',
@@ -1031,7 +1051,7 @@ def main() -> None:
                 f'  </div>'
                 f'  <div class="hero-prediction">'
                 f'    <div class="hero-kicker">Ready for Inference</div>'
-                f'    <div class="hero-label" style="font-size:1.18rem;color:#334155;">Awaiting Specimen Upload</div>'
+                f'    <div class="hero-label" style="font-size:1.18rem;color:#CBD5E1;">Awaiting Specimen Upload</div>'
                 f'    <div class="hero-sub">Upload an image and click Run Head-to-Head Comparison to compare self-attention predictions against EfficientNetB0.</div>'
                 f'  </div>'
                 f'</div>',

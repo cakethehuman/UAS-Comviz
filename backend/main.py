@@ -3,7 +3,6 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, File, HTTPException, Request, UploadFile
-from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
@@ -76,7 +75,7 @@ async def list_models() -> ModelsResponse:
 @app.post("/models/reload", response_model=ModelsResponse, tags=["models"])
 async def reload_models() -> ModelsResponse:
     """Re-scan backend/model/ and reload weights without restarting the server."""
-    await run_in_threadpool(registry.load_all)
+    registry.load_all()
     return ModelsResponse(models=registry.get_registry_info(), classes=CLASS_LABELS)
 
 
@@ -84,13 +83,12 @@ async def reload_models() -> ModelsResponse:
 async def predict_compare(file: UploadFile = File(...)) -> CompareResponse:
     """Validate image once and run head-to-head inference across EfficientNetB0 and ViT."""
     file_bytes = await file.read()
-    rgb_image, metadata = await run_in_threadpool(
-        validate_and_decode_image,
+    rgb_image, metadata = validate_and_decode_image(
         file_bytes,
         file.filename,
         file.content_type,
     )
-    models, comparison = await run_in_threadpool(registry.compare, rgb_image)
+    models, comparison = registry.compare(rgb_image)
     return CompareResponse(
         classes=CLASS_LABELS,
         image=metadata,
@@ -102,13 +100,12 @@ async def predict_compare(file: UploadFile = File(...)) -> CompareResponse:
 async def _predict_single(model_key: str, file: UploadFile) -> SinglePredictionResponse:
     """Validate uploaded image and predict with a single named model slot."""
     file_bytes = await file.read()
-    rgb_image, metadata = await run_in_threadpool(
-        validate_and_decode_image,
+    rgb_image, metadata = validate_and_decode_image(
         file_bytes,
         file.filename,
         file.content_type,
     )
-    result = await run_in_threadpool(registry.predict_model, model_key, rgb_image)
+    result = registry.predict_model(model_key, rgb_image)
     if result.status == "unavailable":
         raise HTTPException(
             status_code=503,
